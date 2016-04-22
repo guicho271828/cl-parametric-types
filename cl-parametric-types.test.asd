@@ -21,5 +21,7 @@
   :depends-on (:fiveam :cl-parametric-types :cl-parametric-types.libs)
   :pathname "test/"
   :components
-  ((:file "package")))
+  ((:file "package"))
+  :perform (test-op :after (op c)
+                    (eval (read-from-string "(every #'fiveam::TEST-PASSED-P (5am:run! :cl-parametric-types))"))))
 

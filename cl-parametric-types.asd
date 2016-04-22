@@ -29,5 +29,7 @@
    (:file "2-normalize"    :depends-on ("2-simplify"))
    (:file "3-concretize"   :depends-on ("2-simplify"))
    (:file "4-instantiate"  :depends-on ("1-log"    "3-concretize"))
-   (:file "5-template"     :depends-on ("1-struct" "4-instantiate"))))
+   (:file "5-template"     :depends-on ("1-struct" "4-instantiate")))
+  :in-order-to ((test-op (test-op :cl-parametric-types.test))))
+
 

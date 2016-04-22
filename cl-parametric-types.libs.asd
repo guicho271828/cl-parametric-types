@@ -21,5 +21,6 @@
   :depends-on (:cl-parametric-types)
   :pathname "libs/"
   :components
-  ((:file "pair")))
+  ((:file "pair"))
+  :in-order-to ((test-op (test-op :cl-parametric-types.test))))
 
