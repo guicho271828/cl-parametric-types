@@ -133,7 +133,7 @@ to instantiate the appropriate function and to dispatch at compile time.
 For example,
 
         (template (&optional (<t1> t) (<t2> t))
-          (defstruct pair ()
+          (defclass pair ()
             ((first  :type <t1>)
              (second :type <t2>))))
 
