@@ -47,13 +47,17 @@ BEGIN{
     #     print "\n"
     # }
     match($0,/^ *"/)
-    start=RLENGTH+1
-    match($0,/"$/)
-    end=RSTART
-    if (end==0){
-        print substr($0,start)
-    }else{
-        print substr($0,start,end-start-1)
+    s1=RSTART
+    s2=RLENGTH+1
+    match($0,/" *$/)
+    e1=RSTART
+    if (e1==0){
+        print substr($0,s2)
+    }else if (s1==0){
+        print substr($0,s2,e1-s2-1)
+    }
+    else{
+        print substr($0,s2,e1-s2)
     }
 
     if ($0 ~ /.*"$/){
