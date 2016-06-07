@@ -52,12 +52,12 @@ BEGIN{
     match($0,/" *$/)
     e1=RSTART
     if (e1==0){
-        print substr($0,s2)
+        print "`"substr($0,s2)"`"
     }else if (s1==0){
-        print substr($0,s2,e1-s2-1)
+        print "`"substr($0,s2,e1-s2-1)"`"
     }
     else{
-        print substr($0,s2,e1-s2)
+        print "`"substr($0,s2,e1-s2)"`"
     }
 
     if ($0 ~ /.*"$/){
