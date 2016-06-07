@@ -21,8 +21,18 @@ BEGIN{
     }
 }
 
-match($0, /(defun|defmacro).*/){
-    print "* Function "substr($0, RSTART+5, RLENGTH)"\n"
+/defun/{
+    name=$2
+    $1=""
+    $2=""
+    print "* Function "name" "$0"\n"
+}
+
+/defmacro/{
+    name=$2
+    $1=""
+    $2=""
+    print "* Macro "name" "$0"\n"
 }
 
 /^ *"/,/.*"$/{
