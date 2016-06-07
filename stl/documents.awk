@@ -39,7 +39,16 @@ BEGIN{
     # if($0 ~ /^ *"/){
     #     print "\n"
     # }
-    print
+    match($0,/^ *"/)
+    start=RLENGTH+1
+    match($0,/"$/)
+    end=RSTART
+    if (end==0){
+        print substr($0,start)
+    }else{
+        print substr($0,start,end-start-1)
+    }
+
     if ($0 ~ /.*"$/){
         print "\n"
     }
